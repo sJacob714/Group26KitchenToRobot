@@ -45,8 +45,8 @@ function AddedToBasket() {
   alert("Added To Basket");
 }
 
-function ItemsOrdered() {
-  alert("Items Ordered");
+function OrderSent() {
+  alert("Order Details have been sent to WaiterBot");
 }
 
 const ButtonToggle = styled(Button)`
@@ -126,7 +126,9 @@ function useInput(defaultValue) {
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 export default function App(){
-  const inputProps = useInput();
+  const inputProps1 = useInput();
+  const inputProps2 = useInput();
+
   const [open1, setOpen1] = useState(false);
   const [open2, setOpen2] = useState(false);
   const [open3, setOpen3] = useState(false);
@@ -141,105 +143,28 @@ export default function App(){
       <div id="app-modal"/>
 
       <div>
-        <span>Restaurant Menu</span>
+        <span>Order Information</span>
       </div>
 
       <div>
-      <span>Table Number is : {inputProps.value} </span>
+      <span>Enter Order Number to be delivered</span>
         <StyledInput
-          {...inputProps}
+          {...inputProps1}
+          placeholder="Order Number Here"
+        />
+      </div>
+
+      <div>
+      <span>Enter Table Nuber of Order: </span>
+        <StyledInput
+          {...inputProps2}
           placeholder="Table Number Here"
         />
       </div>
 
-{/*}
       <div>
-        <Button onClick={AddedToBasket}>
-          Menu Item 1
-        </Button>
-      </div>
-
-      <div>
-        <Button onClick={AddedToBasket}>
-          Menu Item 2
-        </Button>
-      </div>
-      <div>
-        <Button onClick={AddedToBasket}>
-          Menu Item 3
-        </Button>
-      </div>
-      
-      <a href="https://www.google.com" target="_blank">
-        <Button>Link To Google</Button>
-      </a>
-  */}
-
-<div>
-      <div>Number of Menu Item 1 in Basket: {data1.menu1Num}</div>
-      <Button
-        
-        onClick={() => {
-          setOpen1(true);
-        }}
-      >
-        Menu Item 1
-      </Button>
-      {open1 && (
-        <MenuItem1
-          //{...props}
-          setOpen1={setOpen1}
-          data1={data1}
-          setData1={setData1}
-        />
-      )}
-      </div>
-
-      <div>
-      <div>Number of Menu Item 2 in Basket: {data2.menu2Num}</div>
-      <Button
-        
-        onClick={() => {
-          setOpen2(true);
-        }}
-      >
-        Menu Item 2
-      </Button>
-      {open2 && (
-        <MenuItem2
-          //{...props}
-          setOpen2={setOpen2}
-          data2={data2}
-          setData2={setData2}
-        />
-      )}
-      </div>
-
-      <div>
-      <div>Number of Menu Item 3 in Basket: {data3.menu3Num}</div>
-      <Button
-        
-        onClick={() => {
-          setOpen3(true);
-        }}
-      >
-        Menu Item 3
-      </Button>
-      {open3 && (
-        <MenuItem3
-          //{...props}
-          setOpen3={setOpen3}
-          data3={data3}
-          setData3={setData3}
-        />
-      )}
-      </div>
-      
-      <ToggleGroup />
-
-      <div>
-        <Button theme="pink" onClick={ItemsOrdered}>
-          Order Items
+        <Button theme="pink" onClick={OrderSent}>
+          Deliver Order
         </Button>
       </div>
 
